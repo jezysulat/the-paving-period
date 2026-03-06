@@ -94,7 +94,16 @@ nav {
 
 /* 4 feature badges */
 .hero-pills { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; position: relative; z-index: 1; }
-.hero-pill { font-family: var(--font-sub); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); padding: 10px 20px; border: 1px solid rgba(201,164,77,.2); white-space: nowrap; }
+.hero-pill { 
+  font-family: var(--font-sub); 
+  font-size: 9px; 
+  font-weight: 600; 
+  letter-spacing: .18em; 
+  text-transform: uppercase; 
+  color: var(--gold); 
+  padding: 10px 20px; 
+  border: 1px solid rgba(201,164,77,.2); 
+  white-space: nowrap; 
 
 .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; position: relative; z-index: 1; }
 .btn-gold { font-family: var(--font-sub); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--black); background: var(--gold); border: none; padding: 15px 44px; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity .2s, transform .2s; }
@@ -382,12 +391,12 @@ footer { background: var(--black); border-top: 1px solid rgba(234,230,223,.07); 
       </div>
     </div>
     <p class="hero-body">An exclusive 45-day disciplined transition designed to align your Public Identity with the gravity of your economic mission.</p>
-    <div class="hero-tags">
-      <span class="tag gold-tag">45 Days</span>
-      <span class="tag">Infrastructure</span>
-      <span class="tag">Podcast Feature</span>
-      <span class="tag">Network Leverage</span>
-    </div>
+<div class="hero-pills">
+  <span class="hero-pill">45 Days</span>
+  <span class="hero-pill">Infrastructure</span>
+  <span class="hero-pill">Podcast Feature</span>
+  <span class="hero-pill">Network Leverage</span>
+</div>
     <div class="hero-cta-wrap">
       <a href="#apply" class="btn-gold">Pave Your Mission</a>
       <span class="hero-cta-note">Screening required · Standards over Volume</span>
