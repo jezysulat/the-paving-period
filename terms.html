@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms &amp; Conditions — The Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0B0B0C;
+  --green: #163C2E;
+  --gold: #C9A44D;
+  --offwhite: #EAE6DF;
+  --muted: rgba(234,230,223,0.6);
+  --font-headline: 'Futura','Century Gothic','Trebuchet MS',sans-serif;
+  --font-editorial: 'Playfair Display','Georgia',serif;
+  --font-sub: -apple-system,'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --font-body: 'Poppins',sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--offwhite); font-family: var(--font-body); font-weight: 400; font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11,11,12,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,164,77,.1);
+  padding: 0 48px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; flex-direction: row; align-items: center; gap: 16px; text-decoration: none; }
+.nav-brand-text { display: flex; flex-direction: column; gap: 4px; }
+.nav-brand-name { font-family: var(--font-headline); font-size: 15px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); line-height: 1; }
+.nav-brand-sub { font-family: var(--font-sub); font-size: 9px; font-weight: 400; color: rgba(201,164,77,.55); letter-spacing: .22em; text-transform: uppercase; line-height: 1; }
+.nav-back { font-family: var(--font-sub); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid rgba(201,164,77,.3); padding: 9px 20px; transition: all .2s; }
+.nav-back:hover { background: rgba(201,164,77,.08); border-color: rgba(201,164,77,.6); }
+
+.page-hero {
+  padding: 160px 48px 80px;
+  text-align: center;
+  position: relative; z-index: 1;
+  background: var(--black);
+  overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(22,60,46,.35) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-eyebrow {
+  font-family: var(--font-sub); font-size: 9px; font-weight: 700;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 24px; display: flex; align-items: center; gap: 10px; justify-content: center;
+  position: relative; z-index: 1;
+}
+.page-eyebrow::before, .page-eyebrow::after { content: '—'; opacity: .5; }
+.page-h1 {
+  font-family: var(--font-headline); font-size: clamp(36px,5vw,64px);
+  font-weight: 500; line-height: 1.05; letter-spacing: -.5%;
+  color: var(--offwhite); margin-bottom: 6px; position: relative; z-index: 1;
+}
+.page-editorial {
+  font-family: var(--font-editorial); font-size: clamp(22px,3vw,38px);
+  font-style: italic; font-weight: 400; color: var(--gold);
+  margin-bottom: 28px; position: relative; z-index: 1; line-height: 1.15;
+}
+.page-rule { width: 40px; height: 1px; background: rgba(201,164,77,.4); margin: 0 auto 24px; position: relative; z-index: 1; }
+.page-meta { font-family: var(--font-body); font-size: 12px; color: var(--muted); font-style: italic; position: relative; z-index: 1; }
+
+.content-wrap {
+  max-width: 800px; margin: 0 auto;
+  padding: 72px 48px 120px;
+  position: relative; z-index: 1;
+}
+
+/* INTRO */
+.intro-statement {
+  border: 1px solid rgba(201,164,77,.2); padding: 32px 36px;
+  margin-bottom: 64px; background: rgba(201,164,77,.03); position: relative;
+}
+.intro-statement::before {
+  content: '"'; font-family: var(--font-editorial); font-size: 80px;
+  color: rgba(201,164,77,.1); position: absolute; top: -10px; left: 20px; line-height: 1;
+}
+.intro-statement p {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.75;
+  color: var(--muted); position: relative; z-index: 1;
+}
+
+/* TOC */
+.toc { border: 1px solid rgba(201,164,77,.15); padding: 32px 36px; margin-bottom: 64px; background: rgba(22,60,46,.04); }
+.toc-label {
+  font-family: var(--font-sub); font-size: 9px; font-weight: 700;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.toc-label::after { content: ''; flex: 1; height: 1px; background: rgba(201,164,77,.2); }
+.toc ol { list-style: none; counter-reset: toc-counter; }
+.toc ol li { counter-increment: toc-counter; margin-bottom: 10px; }
+.toc ol li::before {
+  content: counter(toc-counter, decimal-leading-zero) '.';
+  font-family: var(--font-sub); font-size: 10px; font-weight: 600;
+  color: rgba(201,164,77,.5); margin-right: 10px; letter-spacing: .05em;
+}
+.toc a { font-family: var(--font-body); font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+.toc a:hover { color: var(--gold); }
+
+/* SECTIONS */
+.doc-section { margin-bottom: 56px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+.section-num {
+  font-family: var(--font-sub); font-size: 9px; font-weight: 700;
+  letter-spacing: .3em; text-transform: uppercase; color: rgba(201,164,77,.5);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+}
+.section-num::after { content: ''; flex: 1; height: 1px; background: rgba(201,164,77,.12); }
+
+.section-h2 {
+  font-family: var(--font-headline); font-size: clamp(18px,2vw,24px);
+  font-weight: 500; color: var(--offwhite); margin-bottom: 20px;
+  letter-spacing: .05em; line-height: 1.2;
+}
+
+.doc-p {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.75;
+  color: var(--muted); margin-bottom: 16px;
+}
+.doc-p:last-child { margin-bottom: 0; }
+.doc-p strong { color: var(--offwhite); font-weight: 600; }
+
+.doc-list { margin: 16px 0; list-style: none; }
+.doc-list li {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.75;
+  color: var(--muted); padding: 8px 0 8px 22px; position: relative;
+  border-bottom: 1px solid rgba(201,164,77,.06);
+}
+.doc-list li:last-child { border-bottom: none; }
+.doc-list li::before { content: '—'; position: absolute; left: 0; color: rgba(201,164,77,.4); font-family: var(--font-sub); }
+.doc-list li strong { color: var(--offwhite); font-weight: 600; }
+
+.doc-pull {
+  font-family: var(--font-editorial); font-size: 17px; font-style: italic;
+  color: var(--offwhite); border-left: 2px solid var(--gold);
+  padding: 16px 24px; margin: 28px 0; line-height: 1.5;
+  background: rgba(201,164,77,.04);
+}
+
+/* AGREEMENT BOX */
+.agreement-box {
+  border: 1px solid rgba(201,164,77,.35); padding: 36px;
+  margin-top: 64px; background: rgba(22,60,46,.1);
+  position: relative; overflow: hidden;
+}
+.agreement-box::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(22,60,46,.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.agreement-box-label {
+  font-family: var(--font-sub); font-size: 9px; font-weight: 700;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  position: relative; z-index: 1;
+}
+.agreement-box-label::after { content: ''; flex: 1; height: 1px; background: rgba(201,164,77,.2); }
+.agreement-box p {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.75;
+  color: var(--muted); position: relative; z-index: 1;
+}
+
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,.06);
+  position: relative; z-index: 1;
+}
+.f-top {
+  padding: 40px 48px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.f-brand { display: flex; align-items: center; gap: 14px; }
+.f-brand-text { display: flex; flex-direction: column; gap: 4px; }
+.f-name { font-family: var(--font-headline); font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); line-height: 1; }
+.f-tagline { font-family: var(--font-sub); font-size: 9px; color: rgba(201,164,77,.45); letter-spacing: .18em; text-transform: uppercase; }
+.f-right { text-align: right; }
+.f-right-name { font-family: var(--font-sub); font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(201,164,77,.6); margin-bottom: 6px; }
+.f-right-sub { font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,.3); font-style: italic; }
+.f-bottom {
+  padding: 18px 48px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.f-legal-left { font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,.25); }
+.f-legal-links { display: flex; gap: 28px; }
+.f-legal-links a { font-family: var(--font-body); font-size: 11px; color: rgba(201,164,77,.45); text-decoration: none; transition: color .2s; letter-spacing: .03em; }
+.f-legal-links a:hover, .f-legal-links a.active { color: var(--gold); }
+
+#progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); z-index: 999; width: 0; transition: width .1s linear; }
+
+@media(max-width: 768px) {
+  nav { padding: 0 20px; }
+  .page-hero { padding: 100px 24px 60px; }
+  .content-wrap { padding: 48px 24px 80px; }
+  .toc { padding: 24px 20px; }
+  .intro-statement { padding: 24px 20px; }
+  .f-top { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  .f-right { text-align: center; }
+  .f-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 16px 24px; }
+  .agreement-box { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">The Collective</span>
+      <span class="nav-brand-sub">Shaping Leaders. Advancing Economies.</span>
+    </div>
+  </a>
+  <a class="nav-back" href="index.html">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Legal Document</div>
+  <h1 class="page-h1">Terms &amp; Conditions</h1>
+  <div class="page-editorial">The 45-Day Paving Period</div>
+  <div class="page-rule"></div>
+  <p class="page-meta">Last Updated: March 2026</p>
+</div>
+
+<div class="content-wrap">
+
+  <!-- INTRO -->
+  <div class="intro-statement">
+    <p>By submitting an application or joining the waitlist for The Collective, you agree to the following Terms &amp; Conditions. These terms govern participation in the 45-Day Paving Period, access to related community spaces, and engagement within The Collective ecosystem.</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#t1">Nature of the Program</a></li>
+      <li><a href="#t2">Eligibility</a></li>
+      <li><a href="#t3">Selective Membership Clause</a></li>
+      <li><a href="#t4">Participant Commitment</a></li>
+      <li><a href="#t5">Completion Requirement</a></li>
+      <li><a href="#t6">Community Participation</a></li>
+      <li><a href="#t7">Reputation &amp; Integrity Protection</a></li>
+      <li><a href="#t8">Mission Alignment Clause</a></li>
+      <li><a href="#t9">Intellectual Property</a></li>
+      <li><a href="#t10">Podcast &amp; Media Participation</a></li>
+      <li><a href="#t11">No Guarantee of Business Results</a></li>
+      <li><a href="#t12">Privacy</a></li>
+      <li><a href="#t13">Modification of Terms</a></li>
+      <li><a href="#t14">Agreement</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="doc-section" id="t1">
+    <div class="section-num">01 — Nature of the Program</div>
+    <h2 class="section-h2">What The Collective Is</h2>
+    <p class="doc-p">The Collective is a mission-driven initiative designed to support leaders, founders, and high-performing professionals in developing a visible and credible <strong>Impactful Voice</strong> aligned with their economic mission.</p>
+    <p class="doc-p">Participation begins with a screening and waitlist process. Approved participants enter the <strong>45-Day Paving Period</strong> — a disciplined reflection and documentation framework intended to transform professional insights, experiences, and leadership philosophy into publicly visible strategic assets.</p>
+    <div class="doc-pull">This program is not a content marketing course or social media training. The Collective focuses on the development of an Infrastructure of Trust through documented leadership insights.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="doc-section" id="t2">
+    <div class="section-num">02 — Eligibility</div>
+    <h2 class="section-h2">Who This Is For</h2>
+    <p class="doc-p">Participation is intended for:</p>
+    <ul class="doc-list">
+      <li>Business owners</li>
+      <li>Decision-makers</li>
+      <li>Community leaders</li>
+      <li>High-performing professionals</li>
+      <li>Individuals committed to advancing economic opportunities and leadership transparency</li>
+    </ul>
+    <p class="doc-p">The Collective reserves the right to approve or decline applicants at its sole discretion in order to maintain culture alignment and program standards.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="doc-section" id="t3">
+    <div class="section-num">03 — Selective Membership Clause</div>
+    <h2 class="section-h2">A Curated Ecosystem</h2>
+    <p class="doc-p">The Collective operates as a <strong>curated leadership ecosystem</strong>, not an open-access program. Participation is granted only to individuals who demonstrate alignment with the mission of advancing economies through transparent leadership and responsible influence.</p>
+    <p class="doc-p">Admission decisions may consider factors including:</p>
+    <ul class="doc-list">
+      <li>Leadership intent</li>
+      <li>Professional integrity</li>
+      <li>Mission alignment</li>
+      <li>Readiness to complete the 45-Day Paving Period</li>
+    </ul>
+    <div class="doc-pull">The Collective reserves the right to accept or decline any application at its sole discretion, without obligation to provide justification. Maintaining a high-trust environment and leadership standard takes precedence over participant volume.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="doc-section" id="t4">
+    <div class="section-num">04 — Participant Commitment</div>
+    <h2 class="section-h2">What Is Expected of You</h2>
+    <p class="doc-p">Participants accepted into the 45-Day Paving Period agree to:</p>
+    <ul class="doc-list">
+      <li>Commit 30 to 60 minutes daily to the structured reflection blueprint</li>
+      <li>Document leadership insights, professional lessons, and experiences</li>
+      <li>Maintain integrity, professionalism, and alignment with the mission of The Collective</li>
+    </ul>
+    <p class="doc-p">The program requires consistent participation throughout the full 45-day duration.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="doc-section" id="t5">
+    <div class="section-num">05 — Completion Requirement</div>
+    <h2 class="section-h2">From Aspirant to Catalyst</h2>
+    <p class="doc-p">All participants begin the program as <strong>Aspirants</strong>. Successful completion of the 45-Day Paving Period requires:</p>
+    <ul class="doc-list">
+      <li>Consistent engagement with the blueprint</li>
+      <li>Completion of the required reflection and documentation process</li>
+      <li>Alignment with the values and culture of The Collective</li>
+    </ul>
+    <p class="doc-p">Registration or acceptance into the program does not guarantee permanent membership within the ecosystem. Participants who fail to complete the 45-day commitment may be removed from the program and associated community spaces.</p>
+    <p class="doc-p">Participants who successfully complete the Paving Period graduate as <strong>Catalysts</strong> and may receive:</p>
+    <ul class="doc-list">
+      <li>A featured appearance on The Collective Podcast: Archive of Thoughts</li>
+      <li>Eligibility for recognition within The Collective ecosystem</li>
+      <li>Opportunities for collaboration with other members</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="doc-section" id="t6">
+    <div class="section-num">06 — Community Participation</div>
+    <h2 class="section-h2">Engaging With the Ecosystem</h2>
+    <p class="doc-p">Participants may receive access to community spaces including, but not limited to:</p>
+    <ul class="doc-list">
+      <li>Online discussion groups</li>
+      <li>Collaboration environments</li>
+      <li>Digital community platforms</li>
+    </ul>
+    <p class="doc-p">Members are expected to maintain:</p>
+    <ul class="doc-list">
+      <li>Respectful communication</li>
+      <li>Professional conduct</li>
+      <li>Alignment with the mission of advancing economies through leadership</li>
+    </ul>
+    <p class="doc-p">The Collective reserves the right to remove participants from community spaces if conduct violates these standards.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="doc-section" id="t7">
+    <div class="section-num">07 — Reputation &amp; Integrity Protection</div>
+    <h2 class="section-h2">Upholding the Standard</h2>
+    <p class="doc-p">All participants represent not only themselves but also the reputation and integrity of The Collective ecosystem. Participants agree to uphold professional conduct that reflects:</p>
+    <ul class="doc-list">
+      <li>Leadership integrity</li>
+      <li>Respect for fellow members</li>
+      <li>Responsible influence</li>
+    </ul>
+    <p class="doc-p">The Collective reserves the right to suspend or remove any participant whose behavior, public actions, or professional conduct may compromise:</p>
+    <ul class="doc-list">
+      <li>The integrity of the community</li>
+      <li>The mission of economic advancement</li>
+      <li>The trust environment within The Collective</li>
+    </ul>
+    <p class="doc-p">Such decisions may be made without prior notice when necessary to protect the ecosystem.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="doc-section" id="t8">
+    <div class="section-num">08 — Mission Alignment Clause</div>
+    <h2 class="section-h2">Why We Are Here</h2>
+    <p class="doc-p">The Collective exists to support leaders who seek to create meaningful economic impact, particularly within emerging and developing economies. Participants agree that their engagement within the ecosystem will remain aligned with the broader mission of:</p>
+    <ul class="doc-list">
+      <li>Advancing economic opportunity</li>
+      <li>Strengthening leadership transparency</li>
+      <li>Creating long-term value for communities and industries</li>
+    </ul>
+    <div class="doc-pull">The Collective is not intended to support activities focused primarily on personal fame, vanity metrics, or short-term influence tactics.</div>
+    <p class="doc-p">Participants who demonstrate persistent misalignment with this mission may be reviewed for continued participation.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="doc-section" id="t9">
+    <div class="section-num">09 — Intellectual Property</div>
+    <h2 class="section-h2">Ownership of Your Ideas</h2>
+    <p class="doc-p">Participants retain ownership of their personal insights, ideas, and experiences shared within the program. However, by participating, you grant The Collective permission to:</p>
+    <ul class="doc-list">
+      <li>Reference contributions within the ecosystem</li>
+      <li>Include insights within documentation, archives, or educational materials</li>
+      <li>Feature participant stories or insights in community communications</li>
+    </ul>
+    <p class="doc-p">Participants are responsible for ensuring that confidential or proprietary information is not disclosed publicly.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="doc-section" id="t10">
+    <div class="section-num">10 — Podcast &amp; Media Participation</div>
+    <h2 class="section-h2">The Collective Podcast: Archive of Thoughts</h2>
+    <p class="doc-p">Participants who complete the Paving Period may be invited to participate in <strong>The Collective Podcast: Archive of Thoughts</strong>. Participation in podcast or media features is voluntary. If accepted, participants grant The Collective permission to:</p>
+    <ul class="doc-list">
+      <li>Record and distribute audio or video content</li>
+      <li>Share excerpts for educational or promotional purposes</li>
+    </ul>
+    <p class="doc-p">Participants will retain ownership of their ideas while allowing The Collective to archive and distribute recorded content.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="doc-section" id="t11">
+    <div class="section-num">11 — No Guarantee of Business Results</div>
+    <h2 class="section-h2">Results Depend on You</h2>
+    <p class="doc-p">The Collective provides a framework for leadership reflection, visibility development, and strategic documentation. However, participation does not guarantee specific outcomes, including but not limited to:</p>
+    <ul class="doc-list">
+      <li>Business growth</li>
+      <li>Partnerships or investments</li>
+      <li>Audience expansion</li>
+      <li>Media opportunities</li>
+    </ul>
+    <p class="doc-p">Results depend on each participant's execution, discipline, and external factors.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="doc-section" id="t12">
+    <div class="section-num">12 — Privacy</div>
+    <h2 class="section-h2">How Your Information Is Used</h2>
+    <p class="doc-p">Information submitted through applications, waitlists, or onboarding processes will be used solely for:</p>
+    <ul class="doc-list">
+      <li>Screening and evaluation</li>
+      <li>Communication regarding program participation</li>
+      <li>Community management and operations</li>
+    </ul>
+    <p class="doc-p">Personal information will not be sold or distributed to third parties without consent. For full details, please review our <a href="privacy.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,164,77,.3);">Privacy Policy</a>.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="doc-section" id="t13">
+    <div class="section-num">13 — Modification of Terms</div>
+    <h2 class="section-h2">Keeping Things Current</h2>
+    <p class="doc-p">The Collective reserves the right to modify these Terms &amp; Conditions at any time to reflect updates to program structure, policies, or community standards. Participants will be bound by the most current version of the Terms.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="doc-section" id="t14">
+    <div class="section-num">14 — Agreement</div>
+    <h2 class="section-h2">Your Acknowledgement</h2>
+    <p class="doc-p">By submitting an application, joining the waitlist, or participating in the 45-Day Paving Period, you acknowledge that you have read, understood, and agreed to these Terms &amp; Conditions.</p>
+  </div>
+
+  <!-- AGREEMENT BOX -->
+  <div class="agreement-box">
+    <div class="agreement-box-label">By Participating, You Agree</div>
+    <p>Submission of an application or joining the waitlist constitutes acceptance of these Terms &amp; Conditions in full. Questions may be directed through the official communication channels of The Collective or via the <a href="index.html#apply" style="color:var(--gold);text-decoration:none;">contact form</a> on our homepage.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand">
+      <div class="f-brand-text">
+        <span class="f-name">The Collective</span>
+        <span class="f-tagline">Shaping Leaders. Advancing Economies.</span>
+      </div>
+    </div>
+    <div class="f-right">
+      <p class="f-right-name">The Collective © 2026</p>
+      <p class="f-right-sub"><em>Building the infrastructure of trust for international progress.</em></p>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span class="f-legal-left">The Collective © 2026. All Rights Reserved.</span>
+    <div class="f-legal-links">
+      <a href="terms.html" class="active">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  bar.style.width = pct + '%';
+});
+</script>
+</body>
+</html>
