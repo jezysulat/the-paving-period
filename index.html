@@ -383,11 +383,44 @@ footer {
   #back-top svg { stroke: var(--black); }
 
   /* ── GHL FORM EMBED ── */
-  .ghl-frame-wrap { width: 100%; max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
-  .ghl-frame-wrap iframe { width: 100%; border: none; min-height: 500px; background: transparent; }
+  .ghl-frame-wrap {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .ghl-frame-wrap iframe {
+    width: 100%;
+    border: none;
+    min-height: 500px;
+    background: transparent;
+    display: block;
+  }
+  @media(max-width: 900px) {
+    .ghl-frame-wrap {
+      max-width: 100%;
+      padding: 0 8px;
+    }
+    .ghl-frame-wrap iframe {
+      min-height: 540px;
+    }
+    .cta-sec { padding: 64px 20px; }
+  }
   @media(max-width: 640px) {
-    .ghl-frame-wrap iframe { min-height: 420px; max-height: 420px; overflow: hidden; }
-    .cta-sec { padding: 72px 24px; }
+    .ghl-frame-wrap {
+      max-width: 100%;
+      padding: 0;
+      margin: 0 auto;
+    }
+    .ghl-frame-wrap iframe {
+      min-height: 600px;
+      width: 100% !important;
+    }
+    .cta-sec { padding: 56px 20px 64px; }
+    .cta-h2 { font-size: clamp(30px, 9vw, 52px); }
+    .cta-editorial { font-size: clamp(26px, 8vw, 48px); }
+    .cta-body { font-size: 14px; margin-bottom: 32px; }
   }
 
 </style>
@@ -722,7 +755,7 @@ footer {
         data-layout-iframe-id="inline-jnS5rvxGloP7WtaDCUVS"
         data-form-id="jnS5rvxGloP7WtaDCUVS"
         title="The Collective Waitlist Form"
-        scrolling="no"
+        style="width:1px; min-width:100%;"
         allowtransparency="true">
       </iframe>
     </div>
@@ -753,6 +786,17 @@ footer {
 </div><!-- end #landing -->
 
 <script src="https://link.funnelgenie.io/js/form_embed.js"></script>
+<script>
+// ── GHL IFRAME AUTO-RESIZE ──
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'iframeResize') {
+    var iframe = document.getElementById('inline-jnS5rvxGloP7WtaDCUVS');
+    if (iframe && e.data.height) {
+      iframe.style.minHeight = e.data.height + 'px';
+    }
+  }
+});
+</script>
 <script>
 // ── SCROLL REVEAL ──
 // Scroll reveal: CSS only, no JS observer needed
