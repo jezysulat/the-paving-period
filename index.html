@@ -393,9 +393,10 @@ footer {
   .ghl-frame-wrap iframe {
     width: 100%;
     border: none;
-    min-height: 500px;
+    min-height: 420px;
     background: transparent;
     display: block;
+    overflow: hidden;
   }
   @media(max-width: 900px) {
     .ghl-frame-wrap {
@@ -403,7 +404,7 @@ footer {
       padding: 0 8px;
     }
     .ghl-frame-wrap iframe {
-      min-height: 540px;
+      min-height: 420px;
     }
     .cta-sec { padding: 64px 20px; }
   }
@@ -414,7 +415,7 @@ footer {
       margin: 0 auto;
     }
     .ghl-frame-wrap iframe {
-      min-height: 600px;
+      min-height: 420px;
       width: 100% !important;
     }
     .cta-sec { padding: 56px 20px 64px; }
@@ -755,7 +756,8 @@ footer {
         data-layout-iframe-id="inline-jnS5rvxGloP7WtaDCUVS"
         data-form-id="jnS5rvxGloP7WtaDCUVS"
         title="The Collective Waitlist Form"
-        style="width:1px; min-width:100%;"
+        style="width:1px; min-width:100%; overflow:hidden;"
+        scrolling="no"
         allowtransparency="true">
       </iframe>
     </div>
@@ -792,6 +794,7 @@ window.addEventListener('message', function(e) {
   if (e.data && e.data.type === 'iframeResize') {
     var iframe = document.getElementById('inline-jnS5rvxGloP7WtaDCUVS');
     if (iframe && e.data.height) {
+      iframe.style.height = e.data.height + 'px';
       iframe.style.minHeight = e.data.height + 'px';
     }
   }
