@@ -831,58 +831,40 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 // ────── VIDEO ENFORCEMENT ──────
-document.addEventListener('DOMContentLoaded', function() {
+let videoComplete = false;
+setTimeout(() => {
   const video = document.getElementById('main-video');
-  const body = document.body;
+  const problemSec = document.getElementById('problem');
   
   if (video) {
-    // Disable playback rate changes (prevents x2 speed)
+    // Disable speed changes
     Object.defineProperty(video, 'playbackRate', {
-      get: function() { return 1; },
-      set: function() { return; }
+      get: () => 1,
+      set: () => {}
     });
     
-    // Prevent right-click context menu
-    video.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    });
+    // Prevent right-click
+    video.addEventListener('contextmenu', e => e.preventDefault());
     
-    // Disable scrolling initially
-    body.style.overflow = 'hidden';
+    // Create notification
+    const msg = document.createElement('div');
+    msg.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(201,164,77,0.95);color:#0B0B0C;padding:16px 28px;border-radius:4px;z-index:8000;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity 0.3s;box-shadow:0 8px 24px rgba(0,0,0,0.3)';
+    msg.textContent = 'Finish watching the video to proceed';
+    document.body.appendChild(msg);
     
-    // Create and show overlay message
-    const overlay = document.createElement('div');
-    overlay.id = 'video-overlay';
-    overlay.innerHTML = `
-      <div style="
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(11,11,12,0.95); z-index: 9998; display: flex;
-        align-items: center; justify-content: center; color: #EAE6DF;
-        font-family: 'Poppins', sans-serif; text-align: center;
-      ">
-        <div>
-          <h2 style="margin: 0 0 20px 0; color: #C9A44D; font-size: 28px;">Please Watch the Full Video</h2>
-          <p style="margin: 0; font-size: 16px; opacity: 0.9;">You must complete watching before proceeding.</p>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(overlay);
+    // Mark complete when video ends
+    video.addEventListener('ended', () => { videoComplete = true; });
     
-    // When video ends, remove overlay and enable scrolling
-    video.addEventListener('ended', function() {
-      body.style.overflow = 'auto';
-      overlay.style.opacity = '0';
-      overlay.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => overlay.remove(), 500);
-    });
-    
-    // Prevent skipping by seeking
-    video.addEventListener('seeked', function() {
-      if (video.currentTime > video.duration * 0.9) return;
-      video.currentTime = Math.min(video.currentTime, video.duration * 0.1);
-    });
+    // Prevent scrolling past hero section
+    window.addEventListener('scroll', () => {
+      if (!videoComplete && problemSec && window.scrollY >= problemSec.offsetTop - 100) {
+        window.scrollTo(0, 0);
+        msg.style.opacity = '1';
+        setTimeout(() => { msg.style.opacity = '0'; }, 2500);
+      }
+    }, {passive: true});
   }
-});
+}, 100);
 
 const overlay  = document.getElementById('overlay');
 const envStage = document.getElementById('envStage');
