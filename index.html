@@ -468,12 +468,14 @@ footer {
     <!-- VSL VIDEO -->
     <div class="vsl-wrap">
       <div class="vsl-box" id="vslBox">
-        <iframe 
-          src="https://www.youtube.com/embed/HwWODug5Gcg" 
-          frameborder="0" 
-          allowfullscreen
-          style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; border-radius: 8px;">
-        </iframe>
+        <video 
+          id="main-video"
+          style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; border-radius: 8px;" 
+          controls 
+          preload="metadata">
+          <source src="https://assets.cdn.filesafe.space/ikafrDSYUL904C8OYC3s/media/69b2e066eba4870199ed6cd8.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <div class="vsl-corner tl"></div>
         <div class="vsl-corner tr"></div>
         <div class="vsl-corner bl"></div>
@@ -826,6 +828,60 @@ document.querySelectorAll('.faq-q').forEach(q => {
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!was) it.classList.add('open');
   });
+});
+
+// ────── VIDEO ENFORCEMENT ──────
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('main-video');
+  const body = document.body;
+  
+  if (video) {
+    // Disable playback rate changes (prevents x2 speed)
+    Object.defineProperty(video, 'playbackRate', {
+      get: function() { return 1; },
+      set: function() { return; }
+    });
+    
+    // Prevent right-click context menu
+    video.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+    
+    // Disable scrolling initially
+    body.style.overflow = 'hidden';
+    
+    // Create and show overlay message
+    const overlay = document.createElement('div');
+    overlay.id = 'video-overlay';
+    overlay.innerHTML = `
+      <div style="
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(11,11,12,0.95); z-index: 9998; display: flex;
+        align-items: center; justify-content: center; color: #EAE6DF;
+        font-family: 'Poppins', sans-serif; text-align: center;
+      ">
+        <div>
+          <h2 style="margin: 0 0 20px 0; color: #C9A44D; font-size: 28px;">Please Watch the Full Video</h2>
+          <p style="margin: 0; font-size: 16px; opacity: 0.9;">You must complete watching before proceeding.</p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    
+    // When video ends, remove overlay and enable scrolling
+    video.addEventListener('ended', function() {
+      body.style.overflow = 'auto';
+      overlay.style.opacity = '0';
+      overlay.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => overlay.remove(), 500);
+    });
+    
+    // Prevent skipping by seeking
+    video.addEventListener('seeked', function() {
+      if (video.currentTime > video.duration * 0.9) return;
+      video.currentTime = Math.min(video.currentTime, video.duration * 0.1);
+    });
+  }
 });
 
 const overlay  = document.getElementById('overlay');
